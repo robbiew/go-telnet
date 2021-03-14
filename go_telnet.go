@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/mtojek/go-telnet/client"
-	"github.com/mtojek/go-telnet/commandline"
+	"github.com/robbiew/go-telnet/client"
+	"github.com/robbiew/go-telnet/commandline"
 )
 
 type goTelnet struct{}
@@ -23,3 +23,5 @@ func (g *goTelnet) createTelnetClient() *client.TelnetClient {
 	telnetClient := client.NewTelnetClient(commandLine)
 	return telnetClient
 }
+
+

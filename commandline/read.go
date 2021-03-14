@@ -10,9 +10,12 @@ import (
 func Read() *CommandLine {
 	host := kingpin.Arg("host", "Target host").Required().String()
 	port := kingpin.Arg("port", "Target port").Required().Uint64()
+	drop := kingpin.Arg("node", "Target node").Required().String()
+	xtrn := kingpin.Arg("xtrn", "Target xtrn").Required().String()
+	from := kingpin.Arg("from", "Target from").Required().String()
 	timeout := kingpin.Flag("timeout", "Byte receiving timeout after the input EOF occurs").Short('t').Default("1s").Duration()
 
-	kingpin.UsageTemplate(kingpin.CompactUsageTemplate).Version("1.0").Author("Marcin Tojek")
+	kingpin.UsageTemplate(kingpin.CompactUsageTemplate).Version("1.0").Author("Forked by Alpha from Marcin Tojek")
 	kingpin.CommandLine.Name = "go-telnet"
 	kingpin.CommandLine.Help = "Read bytes from stdin and pass them to the remote host."
 
@@ -21,6 +24,9 @@ func Read() *CommandLine {
 	return &CommandLine{
 		host:    *host,
 		port:    *port,
+		drop:    *drop,
+		xtrn:    *xtrn,
+		from:    *from,
 		timeout: *timeout,
 	}
 }

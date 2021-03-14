@@ -7,4 +7,7 @@ type Options interface {
 	Host() string
 	Port() uint64
 	Timeout() time.Duration
+	Drop() string
+	Xtrn() string
+	From() string
 }

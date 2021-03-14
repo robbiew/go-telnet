@@ -6,6 +6,9 @@ import "time"
 type CommandLine struct {
 	host    string
 	port    uint64
+	drop    string
+	xtrn    string
+	from    string
 	timeout time.Duration
 }
 
@@ -17,6 +20,21 @@ func (c *CommandLine) Host() string {
 // Port method returns a given port.
 func (c *CommandLine) Port() uint64 {
 	return c.port
+}
+
+// Drop method returns a given node.
+func (c *CommandLine) Drop() string {
+	return c.drop
+}
+
+// Xtrn method returns a given xtrn id.
+func (c *CommandLine) Xtrn() string {
+	return c.xtrn
+}
+
+// From method returns a given source BBS name.
+func (c *CommandLine) From() string {
+	return c.from
 }
 
 // Timeout method returns a given server response timeout after EOF of input file.
